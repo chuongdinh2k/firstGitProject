@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="div"></div>
+    <div id="div2"></div>
+
+    <input id="username" type="text" placeholder="Enter your user name" onkeyup="onKeyUp()" />
+    <input id="age" type="password" placeholder="Enter your age" />
+    <input id="password" type="password" placeholder="Enter your password" />
+    <button id="submit" onclick="PushToObj()">BUTTON</button>
+    <button id="showlist" onclick="showlistUser()">showlist</button>
+    <button id="XoaUserdau" onclick="deleteFirst()">XoaUserdau</button>
+
+
+    <script>
+        var show = document.getElementById("div");
+        var show2 = document.getElementById("div2");
+        var userName = document.getElementById("username");
+        var passWord = document.getElementById("password");
+        var submit = document.getElementById("submit");
+        var showlist = document.getElementById("showlist");
+        var obj = [];
+        var x = '';
+
+        function onKeyUp() {
+            show.innerHTML = `Welcome ` + userName.value + ` to my website!`
+        };
+
+        function PushToObj() {
+            var userNameValue = userName.value.length;
+            if (userNameValue > 0) {
+                obj.push(userName.value);
+            }
+            console.log(obj);
+        }
+
+        function showlistUser() {
+
+
+            for (var i in obj) {
+                x += `<h1>${obj[i]}</h1>`;
+            }
+            console.log(x);
+            show2.innerHTML = x;
+            return x;
+            //console.log(x);
+
+
+        };
+
+        function deleteFirst() {
+            return obj.pop();
+        }
+        //console.log(userName.value.length);
+
+    </script>
+</body>
+
+</html>
